@@ -1,0 +1,22 @@
+# Environments
+venv/
+env/
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# YOLO
+yolov8n.pt
+runs/
+
+# Uploads and temporary files
+uploads/
+static/out_*
+
+# OS files
+.DS_Store
+Thumbs.db

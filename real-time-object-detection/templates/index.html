@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv8 Real-Time Object Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <div class="logo">
+                <h1>VisionDetect <span>AI</span></h1>
+            </div>
+            <p class="subtitle">Powered by YOLOv8 & Real-Time Computer Vision</p>
+        </header>
+
+        <div class="dashboard">
+            <div class="card upload-card">
+                <h2><span class="icon">🖼️</span> Image Detection</h2>
+                <div class="upload-area" id="uploadArea">
+                    <form id="uploadForm">
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                        <label for="imageInput" class="upload-label">
+                            <div class="upload-icon">☁️</div>
+                            <p>Click or drag image to upload</p>
+                        </label>
+                    </form>
+                </div>
+                <div class="loading-overlay" id="loadingOverlay">
+                    <div class="spinner"></div>
+                    <p>Detecting Objects...</p>
+                </div>
+                <div class="result-area" id="resultArea" style="display: none;">
+                    <img id="resultImage" src="" alt="Detection Result">
+                    <button id="resetBtn" class="btn secondary-btn">Try Another Image</button>
+                </div>
+            </div>
+
+            <div class="card webcam-card">
+                <h2><span class="icon">🎥</span> Live Webcam Stream</h2>
+                <div class="webcam-container">
+                    <div class="webcam-placeholder" id="webcamPlaceholder">
+                        <p>Webcam is off</p>
+                        <button id="startWebcamBtn" class="btn primary-btn">Start Live Detection</button>
+                    </div>
+                    <img id="webcamFeed" class="webcam-feed" src="" alt="Live Webcam Feed" style="display: none;">
+                </div>
+                <div class="controls" id="webcamControls" style="display: none;">
+                    <button id="stopWebcamBtn" class="btn danger-btn">Stop Camera</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
